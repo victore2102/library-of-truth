@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import View from './components/View';
+import alchemist from './static/the-alchemist.jpg'
+import giver from './static/giver.jpg'
 
 function App() {
+
+  const book1 = {
+    name: 'The Alchemist',
+    image: alchemist
+  };
+
+  const book2 = {
+    name: 'The Giver',
+    image: giver
+  };
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <View book={book1} />
+      <View book={book2} />
     </div>
   );
 }
