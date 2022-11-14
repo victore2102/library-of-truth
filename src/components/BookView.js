@@ -6,19 +6,14 @@ export default function BookView({book, bookName}) {
     const [bookModalOpen, setBookModalOpen] = useState(false);
     const [bookFetch, setBookFetch] = useState(undefined);
 
-    
     function dateBuilder(d, plus, method) {
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
         let day = days[(d.getDay() + plus) % 7];
-
         let month = months[d.getMonth()];
         let year = d.getFullYear();
         let date = d.getDate() + plus;
-
         let compMonth = d.getMonth() + 1;
-
         if(plus > 0) {
             if(date > 28) {
                 if(month === "January" || month === "March" || month === "May" || month === "July" || month === "August" || month === "October") {
@@ -65,7 +60,6 @@ export default function BookView({book, bookName}) {
         else {
             return `${day} ${date} ${month} ${year}`;
         }
-        
     }
 
     function convertDate(date) {
@@ -81,7 +75,6 @@ export default function BookView({book, bookName}) {
         return `${month}/${dateArr[1]}/${dateArr[3]}`;
     }
 
-
     const fetchBookInfo = async () => {
         await fetch(`http://localhost:9000/books/${bookName}`).then(res => res.json()).then(data => {
             if(data.avail === true) {
@@ -91,6 +84,7 @@ export default function BookView({book, bookName}) {
                             <h2>Title - <span style={{color: '#F3D4C5'}}>{data.title}</span></h2>
                             <h2>Author - <span style={{color: '#F3D4C5'}}>{data.author}</span></h2>
                             <h2>Published - <span style={{color: '#F3D4C5'}}>{data.published}</span></h2>
+                            <h2>Publisher - <span style={{color: '#F3D4C5'}}>{data.publisher}</span></h2>
                             <h2>ISBN - <span style={{color: '#F3D4C5'}}>{data.isbn}</span></h2>
                             <h1 style={{color: '#0CF120'}}>✔ Available ✔</h1>
                         </div>
@@ -109,6 +103,7 @@ export default function BookView({book, bookName}) {
                                 <h2>Title - <span style={{color: '#F3D4C5'}}>{data.title}</span></h2>
                                 <h2>Author - <span style={{color: '#F3D4C5'}}>{data.author}</span></h2>
                                 <h2>Published - <span style={{color: '#F3D4C5'}}>{data.published}</span></h2>
+                                <h2>Publisher - <span style={{color: '#F3D4C5'}}>{data.publisher}</span></h2>
                                 <h2>ISBN - <span style={{color: '#F3D4C5'}}>{data.isbn}</span></h2>
                                 <h1 style={{color: '#DA1010'}}>✖ Not Available ✖</h1>
                                 <h2>Checked Out By - <span style={{color: '#F3D4C5'}}>{data.who}</span></h2>
@@ -127,6 +122,7 @@ export default function BookView({book, bookName}) {
                                 <h2>Title - <span style={{color: '#F3D4C5'}}>{data.title}</span></h2>
                                 <h2>Author - <span style={{color: '#F3D4C5'}}>{data.author}</span></h2>
                                 <h2>Published - <span style={{color: '#F3D4C5'}}>{data.published}</span></h2>
+                                <h2>Publisher - <span style={{color: '#F3D4C5'}}>{data.publisher}</span></h2>
                                 <h2>ISBN - <span style={{color: '#F3D4C5'}}>{data.isbn}</span></h2>
                                 <h1 style={{color: '#DA1010'}}>✖ Not Available ✖</h1>
                                 <h2>Checked Out By - <span style={{color: '#F3D4C5'}}>{data.who}</span></h2>
@@ -138,11 +134,9 @@ export default function BookView({book, bookName}) {
                             </div>
                         </div>)
                 }
-                
             }
         });
     }
-    
     
     const openModal = async () => {
         fetchBookInfo();
@@ -178,8 +172,6 @@ export default function BookView({book, bookName}) {
         req.send(JSONobj);
         fetchBookInfo();
     }
-
-
 
     return(
         <div id='view'>

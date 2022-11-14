@@ -16,11 +16,9 @@ async function start() {
     app.listen(9000);
 }
 
-
 var app = Express();
 
-//helper functions
-
+//helper function
 function handle_put(title, book) {
     for(const value in book) {
         books.updateOne({title:title}, {$set:{[value]:book[value]}});

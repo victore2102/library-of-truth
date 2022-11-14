@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 export default function Avail({open, close}) {
     const [availModalOpen, setAvailModalOpen] = useState(false);
     const [avail, setAvail] = useState(undefined);
+
     const openModal = async ()  => {
         await fetch("http://localhost:9000/books").then(res => res.json()).then(data => {
             let books = []
@@ -20,6 +21,7 @@ export default function Avail({open, close}) {
         });
         setAvailModalOpen(true);
     }
+    
     const closeModal = () => {
         setAvailModalOpen(false);
     }

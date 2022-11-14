@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
+import React from 'react';
 import './Main.css';
 import BookView from './components/BookView';
 import theAlchemist from './static/theAlchemist.jpg';

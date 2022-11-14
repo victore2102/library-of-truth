@@ -4,8 +4,6 @@ import Avail from './Avail';
 
 export default function Header() {
 
-
-
     return(
         <div id='header'>
             <h1>Library of Truth</h1>
