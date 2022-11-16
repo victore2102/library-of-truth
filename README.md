@@ -8,7 +8,7 @@
     * node server.js
 3. Within the other terminal within any directory in the project run
     * npm install
-    Then run
+    * Then run
     * npm start
 4. React server will start up and pull up the visual and the Express server is running in the background
 
