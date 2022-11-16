@@ -155,7 +155,7 @@ export default function BookView({book, bookName}) {
         return false;
     }
 
-    function update(status) {
+    async function update(status) {
         let obj;
         if(status === "out") {
             let who = document.getElementById("who").value;
@@ -170,7 +170,7 @@ export default function BookView({book, bookName}) {
         req.open("PUT", `http://localhost:9000/books/${bookName}`, false);
         req.setRequestHeader('Content-Type', 'application/json');
         req.send(JSONobj);
-        fetchBookInfo();
+        await fetchBookInfo();
     }
 
     return(
