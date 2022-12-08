@@ -3,8 +3,8 @@
 var Express = require('express');
 const {MongoClient} = require('mongodb');
 
-let cs = "mongodb+srv://victor:ekpenyong@cluster0.8dqolnm.mongodb.net/?retryWrites=true&w=majority";
-let db;
+let cs = process.env.MONGO_CS;
+let db; 
 let books;
 
 async function start() {
@@ -13,7 +13,7 @@ async function start() {
     db = client.db("Library");
     books = db.collection("Capstone");
     console.log("Listening");
-    app.listen(9000);
+    app.listen(3000);
 }
 
 var app = Express();
