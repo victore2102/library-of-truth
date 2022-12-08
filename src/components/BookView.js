@@ -76,7 +76,7 @@ export default function BookView({book, bookName}) {
     }
 
     const fetchBookInfo = async () => {
-        await fetch(`http://localhost:9000/books/${bookName}`).then(res => res.json()).then(data => {
+        await fetch(`https://libraryoftruthserver.fly.dev/books/${bookName}`).then(res => res.json()).then(data => {
             if(data.avail === true) {
                 setBookFetch(
                     <div>
@@ -167,7 +167,7 @@ export default function BookView({book, bookName}) {
         }
         let JSONobj = JSON.stringify(obj);
         var req = new XMLHttpRequest();
-        req.open("PUT", `http://localhost:9000/books/${bookName}`, false);
+        req.open("PUT", `https://libraryoftruthserver.fly.dev/books/${bookName}`, false);
         req.setRequestHeader('Content-Type', 'application/json');
         req.send(JSONobj);
         await fetchBookInfo();

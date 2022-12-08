@@ -2,6 +2,7 @@
 // MONGO & Express Library of Truth Server 
 var Express = require('express');
 const {MongoClient} = require('mongodb');
+require('dotenv').config();
 
 let cs = process.env.MONGO_CS;
 let db; 
@@ -13,7 +14,7 @@ async function start() {
     db = client.db("Library");
     books = db.collection("Capstone");
     console.log("Listening");
-    app.listen(3000);
+    app.listen(8080);
 }
 
 var app = Express();

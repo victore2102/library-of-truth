@@ -7,7 +7,7 @@ export default function Avail({open, close}) {
     const [avail, setAvail] = useState(undefined);
 
     const openModal = async ()  => {
-        await fetch("http://localhost:9000/books").then(res => res.json()).then(data => {
+        await fetch("https://libraryoftruthserver.fly.dev/books").then(res => res.json()).then(data => {
             let books = []
         for(let i = 0; i<data.length; i++) {
             if(data[i].avail === true) {
